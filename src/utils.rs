@@ -26,5 +26,6 @@ pub fn cat_strs(strs: &[String]) -> String {
         s.push_str(&str);
         s.push_str(";");
     }
+    s.pop();
     s
 }
