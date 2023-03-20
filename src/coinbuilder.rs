@@ -39,7 +39,6 @@ pub fn init_builder() -> Build{
 
 pub fn get_metedata_from(lib_name: &str) -> (Vec<String>, Vec<String>) {
     let includes_dir = if let Some(paths) = env::var_os(&format!("DEP_{}_INCLUDE", lib_name.to_ascii_uppercase())) {
-        println!("11111111111111111111111111111111");
         env::split_paths(&paths).map(|p| format!("{}", p.display())).collect()
     } else {
         Vec::new()
@@ -57,7 +56,7 @@ pub fn get_metedata_from(lib_name: &str) -> (Vec<String>, Vec<String>) {
 pub fn print_metedata(includes: Vec<String>, coinflags: Vec<String>) {
     let include_str = env::join_paths(includes.iter()).unwrap();
     let coinflags_str = utils::cat_strs(coinflags.as_slice());
-    println!("cargo:include={:?}", include_str);
-    println!("cargo:coinflags={:?}", coinflags_str);
+    println!("cargo:include={}", include_str.to_str().unwrap());
+    println!("cargo:coinflags={}", coinflags_str);
 }
 
