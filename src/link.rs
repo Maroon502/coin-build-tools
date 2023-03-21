@@ -11,21 +11,23 @@ pub fn link_lib_system_if_supported(lib_name: &str) -> bool {
 
     if target.contains("msvc") {
         link_windows_msvc_system(lib_name)
-    } else if !(host_and_target_contain("apple") ||
-        host_and_target_contain("freebsd") ||
-        host_and_target_contain("dragonfly"))
+    } else if !(host_and_target_contain("apple")
+        || host_and_target_contain("freebsd")
+        || host_and_target_contain("dragonfly"))
     {
         link_linux_gnu_system(lib_name)
     } else {
-        println!("cargo:warning=Can not build {}. Not supported target", lib_name);
+        println!(
+            "cargo:warning=Can not build {}. Not supported target",
+            lib_name
+        );
         false
     }
 }
 
 fn link_linux_gnu_system(lib_name: &str) -> bool {
     let mut cfg = pkg_config::Config::new();
-    cfg.cargo_metadata(true)
-        .print_system_libs(false);
+    cfg.cargo_metadata(true).print_system_libs(false);
 
     if utils::want_static(lib_name) {
         cfg.statik(true);
@@ -72,4 +74,3 @@ fn link_windows_msvc_system(lib_name: &str) -> bool {
         }
     }
 }
-
