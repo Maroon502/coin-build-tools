@@ -54,9 +54,13 @@ pub fn get_metedata_from(lib_name: &str) -> (Vec<String>, Vec<String>) {
 }
 
 pub fn print_metedata(includes: Vec<String>, coinflags: Vec<String>) {
-    let include_str = env::join_paths(includes.iter()).unwrap();
-    let coinflags_str = utils::cat_strs(coinflags.as_slice());
-    println!("cargo:include={}", include_str.to_str().unwrap());
-    println!("cargo:coinflags={}", coinflags_str);
+    if !includes.is_empty() {
+        let include_str = env::join_paths(includes.iter()).unwrap();
+        println!("cargo:include={}", include_str.to_str().unwrap());
+    }
+    if !coinflags.is_empty() {
+        let coinflags_str = utils::cat_strs(coinflags.as_slice());
+        println!("cargo:coinflags={}", coinflags_str);
+    }
 }
 

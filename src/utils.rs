@@ -1,3 +1,4 @@
+use std::env;
 use std::process::Command;
 use std::path::Path;
 
@@ -28,4 +29,12 @@ pub fn cat_strs(strs: &[String]) -> String {
     }
     s.pop();
     s
+}
+
+pub fn want_static(lib_name: &str) -> bool {
+    env::var_os(format!("CARGO_{}_STATIC", lib_name.to_ascii_uppercase())).unwrap_or_default() == "1"
+}
+
+pub fn want_system(lib_name: &str) -> bool {
+    env::var_os(format!("CARGO_{}_SYSTEM", lib_name.to_ascii_uppercase())).unwrap_or_default() == "1"
 }
