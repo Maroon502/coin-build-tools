@@ -9,7 +9,7 @@ Just add the following to your `Cargo.toml`:
 
 ```toml
 [build-dependencies]
-coin-build-tools = "0.1"
+coin-build-tools = "0.2"
 ```
 
 ## Configuration
