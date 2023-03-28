@@ -34,7 +34,7 @@ pub fn init_builder() -> Build {
     builder
 }
 
-pub fn get_metedata_from(lib_name: &str) -> (Vec<String>, Vec<String>) {
+pub fn get_metadata_from(lib_name: &str) -> (Vec<String>, Vec<String>) {
     let includes_dir = if let Some(paths) =
         env::var_os(format!("DEP_{}_INCLUDE", lib_name.to_ascii_uppercase()))
     {
@@ -55,7 +55,7 @@ pub fn get_metedata_from(lib_name: &str) -> (Vec<String>, Vec<String>) {
     (includes_dir, coinflags)
 }
 
-pub fn print_metedata(includes: Vec<String>, coinflags: Vec<String>) {
+pub fn print_metadata(includes: Vec<String>, coinflags: Vec<String>) {
     if !includes.is_empty() {
         let include_str = env::join_paths(includes.iter()).unwrap();
         println!("cargo:include={}", include_str.to_str().unwrap());
