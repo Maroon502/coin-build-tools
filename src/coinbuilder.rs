@@ -22,7 +22,7 @@ pub fn init_builder() -> Build {
         .define("HAVE_UNISTD_H", None)
         .define("HAVE_CMATH", None)
         .define("HAVE_CFLOAT", None)
-        .define("HAVE_DLFCN_H", None)
+        // .define("HAVE_DLFCN_H", None)
         .define("HAVE_MEMORY_H", None)
         .to_owned();
 
