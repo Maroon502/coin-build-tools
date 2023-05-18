@@ -1,6 +1,6 @@
 [package]
 name = "coin-build-tools"
-version = "0.2.4"
+version = "0.2.5"
 edition = "2021"
 license = "Apache-2.0"
 description = "coin-build-tools provides a set of tools to build COIN-OR libraries from source."
