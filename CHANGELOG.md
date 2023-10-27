@@ -8,9 +8,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.6](https://github.com/Maroon502/coin-build-tools/compare/v0.2.5...v0.2.6) - 2023-10-27
 
-### Other
-- Update CI
-- Update CI
-- *(deps)* bump actions/checkout from 3 to 4
-- Update CI
+### Change
 - *(deps)* change cc to parallel version
