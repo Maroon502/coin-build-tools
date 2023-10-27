@@ -1,4 +1,4 @@
-name: Release-plz
+name: Release-Publish
 
 permissions:
   pull-requests: write
@@ -10,8 +10,8 @@ on:
       - master
 
 jobs:
-  release-plz:
-    name: Release-plz
+  release-publish:
+    name: Release-Publish
     runs-on: ubuntu-latest
     environment: Cargo
     steps:
